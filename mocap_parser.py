@@ -49,9 +49,9 @@ class Joint:
     fig = plt.figure()
     ax = Axes3D(fig)
 
-    ax.set_xlim3d(-20, 40)
-    ax.set_ylim3d(-30, 30)
-    ax.set_zlim3d(-40, 20)
+    ax.set_xlim3d(-50, 10)
+    ax.set_ylim3d(-20, 40)
+    ax.set_zlim3d(-20, 40)
 
     xs, ys, zs = [], [], []
     for joint in joints.values():

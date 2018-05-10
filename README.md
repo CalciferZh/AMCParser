@@ -4,6 +4,10 @@ A lightweight library to parse and visualize asf/amc files from [CMU MoCap](http
 
 The main purpose of this library is to help understanding how asf/amc file works, as well as how to use them. Therefore, simplicity and readability are stressed, while robustness is ignored.
 
+## Demo
+
+![Demo](demo.png)
+
 ## Usage
 
 There's a simple example in the source code as follows:
@@ -16,14 +20,14 @@ if __name__ == '__main__':
   motions = parse_amc(amc_path)
   frame_idx = 180
   joints['root'].set_motion(motions[180])
-  joints.draw()
+  joints['root'].draw()
 ```
 
 The data can be found from CMU MoCap dataset.
 
 ## Parser
 
-The asf/amc parsers are straightforward and easy to understand. The parsers are fully tested on the CMU MoCap dataset, but I don't expect it can work on other datasets without any modification. However, it won't be hard to extend it for more complicated asf/amc files.
+The asf/amc parsers are straightforward and easy to understand. The parsers are fully tested on the CMU MoCap dataset, but I don't expect it can work on other datasets without any modification. However, it won't be hard to extend it for more complicating asf/amc files.
 
 ## Visualization
 
