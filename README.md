@@ -1,4 +1,4 @@
-# MoCapParser
+# AMCParser
 
 A lightweight library to parse and visualize asf/amc files from [CMU MoCap](http://mocap.cs.cmu.edu/) dataset using Python 3.
 
