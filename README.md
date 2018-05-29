@@ -54,7 +54,7 @@ In 3DViewer, we support:
 * `WASD` to move around.
 * `QE` to zoom in/out.
 * `↑ ↓ ← →` to rotate.
-* `LEFT MOUSE` to drag.
+* `LEFT MOUSE BUTTON` to drag.
 * `RETURN` to reset camera view.
 * `SPACE` to start/pause.
 * `,` and `.` to forward and rewind.
