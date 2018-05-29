@@ -8,7 +8,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 
-class Viwer:
+class Viewer:
   def __init__(self, joints=None, motions=None):
     self.joints = joints
     self.motions = motions
@@ -166,7 +166,7 @@ if __name__ == '__main__':
   amc_path = './data/01/01_01.amc'
   joints = parse_asf(asf_path)
   motions = parse_amc(amc_path)
-  v = Viwer(joints, motions)
+  v = Viewer(joints, motions)
   v.run()
 
 
