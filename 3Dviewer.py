@@ -107,6 +107,14 @@ class Viwer:
       self.translate[2] += self.speed_zoom
     if pressed[pygame.K_e]:
       self.translate[2] -= self.speed_zoom
+    if pressed[pygame.K_COMMA]:
+      self.frame -= 1
+      if self.frame >= len(self.motions):
+        self.frame = 0
+    if pressed[pygame.K_PERIOD]:
+      self.frame += 1
+      if self.frame < 0:
+        self.frame = len(self.motions) - 1
 
     grx = euler.euler2mat(self.global_rx, 0, 0)
     gry = euler.euler2mat(0, self.global_ry, 0)
@@ -139,11 +147,9 @@ class Viwer:
     glEnd()
 
   def run(self):
-    self.joints['root'].set_motion(self.motions[0])
     while not self.done:
       self.process_event()
-      if self.playing:
-        self.joints['root'].set_motion(self.motions[self.frame])
+      self.joints['root'].set_motion(self.motions[self.frame])
       if self.playing:
         self.frame += 1
         if self.frame >= len(self.motions):
