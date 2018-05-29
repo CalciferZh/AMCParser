@@ -49,6 +49,18 @@ The asf/amc parsers are straightforward and easy to understand. The parsers are 
 
 Matplotlib is used to draw joints and bones in 3D statically; PyGame and PyOpenGL are used to draw motion sequence.
 
+In 3DViewer, we support:
+
+* `WASD` to move around.
+* `QE` to zoom in/out.
+* `↑ ↓ ← →` to rotate.
+* `LEFT MOUSE` to drag.
+* `RETURN` to reset camera view.
+* `SPACE` to start/pause.
+* `,` and `.` to forward and rewind.
+
+NOTE that my implementation of changing view is inefficient (but fluent enough) with some small bugs, but I don't have time to improve it. Pull request is welcomed.
+
 ## Dependencies
 
 * numpy
