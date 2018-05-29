@@ -6,7 +6,13 @@ The main purpose of this library is to help understanding how asf/amc file works
 
 ## Demo
 
-![Demo](demo.png)
+Demo using PyGame and PyOpenGL:
+
+![3D Demo](demo.gif)
+
+Demo using Matplotlib:
+
+![Static Demo](demo_static.png)
 
 ## Usage
 
@@ -19,8 +25,18 @@ if __name__ == '__main__':
   joints = parse_asf(asf_path)
   motions = parse_amc(amc_path)
   frame_idx = 180
-  joints['root'].set_motion(motions[180])
+  joints['root'].set_motion(motions[frame_idx])
   joints['root'].draw()
+```
+
+And another exampls in `3Dviewer.py`:
+```python
+  asf_path = './data/01/01.asf'
+  amc_path = './data/01/01_01.amc'
+  joints = parse_asf(asf_path)
+  motions = parse_amc(amc_path)
+  v = Viwer(joints, motions)
+  v.run()
 ```
 
 The data can be found from CMU MoCap dataset.
@@ -31,13 +47,15 @@ The asf/amc parsers are straightforward and easy to understand. The parsers are 
 
 ## Visualization
 
-Matplotlib is used to draw joints and bones in 3D, because using OpenGL or other rendering tools would be too 'heavy'. The drawback is that it can only draw one frame at a time, and animation is not supported. Anyway, that would be enough for a simple glimpse of the motion.
+Matplotlib is used to draw joints and bones in 3D statically; PyGame and PyOpenGL are used to draw motion sequence.
 
 ## Dependencies
 
 * numpy
 * transforms3d
 * matplotlib
+* pygame
+* pyopengl
 
 All the dependencies are available via `pip install`.
 

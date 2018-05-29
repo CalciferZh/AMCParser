@@ -238,5 +238,5 @@ if __name__ == '__main__':
   joints = parse_asf(asf_path)
   motions = parse_amc(amc_path)
   frame_idx = 180
-  joints['root'].set_motion(motions[180])
+  joints['root'].set_motion(motions[frame_idx])
   joints['root'].draw()
