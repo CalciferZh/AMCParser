@@ -28,8 +28,7 @@ class Joint:
   def set_motion(self, motion):
     if self.name == 'root':
       self.coordinate = np.reshape(np.array(motion['root'][:3]), [3, 1])
-      motion['root'] = motion['root'][3:]
-      rotation = np.deg2rad(motion[self.name])
+      rotation = np.deg2rad(motion['root'][3:])
       self.matrix = self.C.dot(euler2mat(*rotation)).dot(self.Cinv)
     else:
       idx = 0
