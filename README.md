@@ -29,7 +29,7 @@ if __name__ == '__main__':
   joints['root'].draw()
 ```
 
-And another exampls in `3Dviewer.py`:
+And another example in `3Dviewer.py`:
 ```python
   asf_path = './data/01/01.asf'
   amc_path = './data/01/01_01.amc'
