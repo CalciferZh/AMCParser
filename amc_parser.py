@@ -6,6 +6,30 @@ from mpl_toolkits.mplot3d import Axes3D
 
 class Joint:
   def __init__(self, name, direction, length, axis, dof, limits):
+    """
+    Definition of basic joint. The joint also contains the information of the
+    bone between it's parent joint and itself. Refer
+    [here](https://research.cs.wisc.edu/graphics/Courses/cs-838-1999/Jeff/ASF-AMC.html)
+    for detailed description for asf files.
+
+    Parameter
+    ---------
+    name: Name of the joint defined in the asf file. There should always be one
+    root joint. String.
+
+    direction: Default direction of the joint(bone). The motions are all defined
+    based on this default pose.
+
+    length: Length of the bone.
+
+    axis: Axis of rotation for the bone.
+
+    dof: Degree of freedom. Specifies the number of motion channels and in what
+    order they appear in the AMC file.
+
+    limits: Limits on each of the channels in the dof specification
+
+    """
     self.name = name
     self.direction = np.reshape(direction, [3, 1])
     self.length = length
@@ -199,7 +223,7 @@ def parse_amc(file_path):
   frames = []
   idx = 0
   line, idx = read_line(content, idx)
-  assert line[0].isnumeric()
+  assert line[0].isnumeric(), line
   while True:
     joint_degree = {}
     while True:
@@ -221,22 +245,27 @@ def test_all():
     asf_path = '%s/%s/%s.asf' % (lv0, lv1, lv1)
     print('parsing %s' % asf_path)
     joints = parse_asf(asf_path)
-    for lv2 in lv2s:
-      if lv2.split('.')[-1] != 'amc':
-        continue
-      amc_path = '%s/%s/%s' % (lv0, lv1, lv2)
-      print('parsing amc %s' % amc_path)
-      motions = parse_amc(amc_path)
-      for idx, motion in enumerate(motions):
-        print('setting motion %d' % idx)
-        joints['root'].set_motion(motion)
+    motions = parse_amc('./nopose.amc')
+    joints['root'].set_motion(motions[0])
+    joints['root'].draw()
+
+    # for lv2 in lv2s:
+    #   if lv2.split('.')[-1] != 'amc':
+    #     continue
+    #   amc_path = '%s/%s/%s' % (lv0, lv1, lv2)
+    #   print('parsing amc %s' % amc_path)
+    #   motions = parse_amc(amc_path)
+    #   for idx, motion in enumerate(motions):
+    #     print('setting motion %d' % idx)
+    #     joints['root'].set_motion(motion)
 
 
 if __name__ == '__main__':
-  asf_path = './data/01/01.asf'
-  amc_path = './data/01/01_01.amc'
-  joints = parse_asf(asf_path)
-  motions = parse_amc(amc_path)
-  frame_idx = 180
-  joints['root'].set_motion(motions[frame_idx])
-  joints['root'].draw()
+  test_all()
+  # asf_path = './133.asf'
+  # amc_path = './133_01.amc'
+  # joints = parse_asf(asf_path)
+  # motions = parse_amc(amc_path)
+  # frame_idx = 0
+  # joints['root'].set_motion(motions[frame_idx])
+  # joints['root'].draw()
