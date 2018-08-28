@@ -57,7 +57,7 @@ In 3DViewer, we support:
 * `LEFT MOUSE BUTTON` to drag.
 * `RETURN` to reset camera view.
 * `SPACE` to start/pause.
-* `,` and `.` to forward and rewind.
+* `,` and `.` to rewind and forward.
 
 NOTE that my implementation of changing view is inefficient (but fluent enough) with some small bugs, but I don't have time to improve it. Pull request is welcomed.
 
