@@ -224,16 +224,19 @@ def parse_amc(file_path):
   idx = 0
   line, idx = read_line(content, idx)
   assert line[0].isnumeric(), line
-  while True:
+  EOF = False
+  while not EOF:
     joint_degree = {}
     while True:
       line, idx = read_line(content, idx)
       if line is None:
-        return frames
+        EOF = True
+        break
       if line[0].isnumeric():
         break
       joint_degree[line[0]] = [float(deg) for deg in line[1:]]
     frames.append(joint_degree)
+  return frames
 
 
 def test_all():
