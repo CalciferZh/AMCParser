@@ -29,7 +29,7 @@ class Viewer:
     self.fps = 120 # frame rate
 
     # whether is dragging
-    self.rorate_dragging = False
+    self.rotate_dragging = False
     self.translate_dragging = False
     # old mouse cursor position
     self.old_x = 0
@@ -103,20 +103,20 @@ class Viewer:
           self.playing = not self.playing
       elif event.type == pygame.MOUSEBUTTONDOWN: # dragging
         if event.button == 1:
-          self.rorate_dragging = True
+          self.rotate_dragging = True
         else:
           self.translate_dragging = True
         self.old_x, self.old_y = event.pos
       elif event.type == pygame.MOUSEBUTTONUP:
         if event.button == 1:
-          self.rorate_dragging = False
+          self.rotate_dragging = False
         else:
           self.translate_dragging = False
       elif event.type == pygame.MOUSEMOTION:
         if self.translate_dragging:
           # haven't figure out best way to implement this
           pass
-        elif self.rorate_dragging:
+        elif self.rotate_dragging:
           new_x, new_y = event.pos
           self.global_ry -= (new_x - self.old_x) / \
               self.screen_size[0] * np.pi
