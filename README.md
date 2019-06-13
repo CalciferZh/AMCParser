@@ -71,6 +71,8 @@ NOTE that my implementation of changing view is inefficient (but fluent enough) 
 
 All the dependencies are available via `pip install`.
 
+Also required is `sudo apt-get install python3-tk`.
+
 ## One More Thing
 
 If this repo is used in any publications or projects, please let me know. I would be happy and encouraged =)

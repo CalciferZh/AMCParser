@@ -1,8 +1,9 @@
 import numpy as np
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from transforms3d.euler import euler2mat
 from mpl_toolkits.mplot3d import Axes3D
-
 
 class Joint:
   def __init__(self, name, direction, length, axis, dof, limits):
@@ -248,7 +249,7 @@ def test_all():
     asf_path = '%s/%s/%s.asf' % (lv0, lv1, lv1)
     print('parsing %s' % asf_path)
     joints = parse_asf(asf_path)
-    motions = parse_amc('./nopose.amc')
+    motions = parse_amc('./data/01/01_01.amc')
     joints['root'].set_motion(motions[0])
     joints['root'].draw()
 
