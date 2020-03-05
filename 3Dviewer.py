@@ -192,7 +192,7 @@ class Viewer:
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     glBegin(GL_POINTS)
-    for j in joints.values():
+    for j in self.joints.values():
       coord = np.array(
         np.squeeze(j.coordinate).dot(self.rotation_R) + \
         self.translate, dtype=np.float32
@@ -201,7 +201,7 @@ class Viewer:
     glEnd()
 
     glBegin(GL_LINES)
-    for j in joints.values():
+    for j in self.joints.values():
       child = j
       parent = j.parent
       if parent is not None:
@@ -245,6 +245,3 @@ if __name__ == '__main__':
   motions = parse_amc(amc_path)
   v = Viewer(joints, motions)
   v.run()
-
-
-
