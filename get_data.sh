@@ -1,15 +1,15 @@
 #!/usr/bin/bash
 
-mkdir asf && cd asf
+mkdir data/ && cd data/
 
+# asf files
 wget http://resources.mpi-inf.mpg.de/HDM05/asf/HDM_bd.asf
 wget http://resources.mpi-inf.mpg.de/HDM05/asf/HDM_bk.asf
 wget http://resources.mpi-inf.mpg.de/HDM05/asf/HDM_dg.asf
 wget http://resources.mpi-inf.mpg.de/HDM05/asf/HDM_mm.asf
 wget http://resources.mpi-inf.mpg.de/HDM05/asf/HDM_tr.asf
 
-cd .. && mkdir amc && cd amc
-
+# amc files
 wget http://resources.mpi-inf.mpg.de/HDM05/01-01/HDM_01-01_amc.zip
 wget http://resources.mpi-inf.mpg.de/HDM05/01-02/HDM_01-02_amc.zip
 wget http://resources.mpi-inf.mpg.de/HDM05/01-03/HDM_01-03_amc.zip
