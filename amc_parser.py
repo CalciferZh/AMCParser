@@ -70,7 +70,8 @@ class Joint:
   def draw(self):
     joints = self.to_dict()
     fig = plt.figure()
-    ax = Axes3D(fig)
+    ax = Axes3D(fig,auto_add_to_figure=False)
+    fig.add_axes(ax)
 
     ax.set_xlim3d(-50, 10)
     ax.set_ylim3d(-20, 40)
